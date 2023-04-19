@@ -11,7 +11,8 @@ module.exports = {
         white: "#f8f7f1",
       },
       fontFamily: {
-        sans: ['"Arial Narrow"', "Arial", "sans-serif"],
+        // sans: ['"Arial Narrow"', "Arial", "sans-serif"],
+        sans: ["proxima-nova-condensed", "Arial", "sans-serif"],
         display: ["Gregor", "Impact", "sans-serif"],
         serif: ["Bagatela", "Times New Roman", "serif"],
       },
