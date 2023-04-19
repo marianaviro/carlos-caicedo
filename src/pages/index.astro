@@ -1,16 +1,39 @@
 ---
+import BaseLayout from "../layouts/BaseLayout.astro";
+const pageTitle = "Home Page";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-		<h1>My Astro Site</h1>
-	</body>
-</html>
+<BaseLayout pageTitle={pageTitle} isIndex={true}>
+  <div class="title relative w-screen min-h-screen">
+    <div class="z-0 absolute w-full h-full bg-black/30"></div>
+    <div class="pt-24 uppercase text-white text-center">
+      <p
+        class="z-50 mb-3 lg:mb-6 drop-shadow-white-sm font-sans font-bold tracking-widest italic underline text-md lg:text-lg"
+      >
+        Carlos Caicedo
+      </p>
+      <div
+        class="z-50 drop-shadow-white-md font-display leading-very-tight sm:leading-extra-tight text-full-mobile sm:text-9xl md:text-[10rem] lg:text-full-desktop"
+      >
+        <h1>Moderno</h1>
+        <h1>Vernáculo</h1>
+      </div>
+    </div>
+  </div>
+</BaseLayout>
+<style>
+  @tailwind base;
+  @tailwind components;
+  @tailwind utilities;
+
+  body {
+    @apply bg-black;
+  }
+
+  .title {
+    background-image: url("../images/home.jpg");
+    background-position: left top;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+</style>

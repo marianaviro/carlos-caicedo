@@ -1,0 +1,7 @@
+body {
+  background-color: #f8f7f1;
+}
+
+.unscrollable {
+  overflow: hidden;
+}

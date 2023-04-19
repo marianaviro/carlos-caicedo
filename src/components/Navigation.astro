@@ -1,0 +1,21 @@
+---
+const { isIndex } = Astro.props;
+const bgcolor = isIndex ? " bg-orange/85" : " bg-white";
+const textcolor = isIndex ? " text-white" : " text-black";
+const shadow = isIndex ? " drop-shadow-pink" : "";
+---
+
+<div
+  class={"p-2 nav-links uppercase italic tracking-widest text-xs" +
+    bgcolor +
+    textcolor +
+    shadow}
+>
+  <a class="px-8" href="/">Inicio</a>
+  <a class="px-8" href="/sobre-caicedo/">Sobre Caicedo</a>
+  <a class="px-8" href="/temas/">Temas</a>
+  <a class="px-8" href="/formatos/">Formatos</a>
+  <a class="px-8" href="/equipo/">Equipo</a>
+  <a class="px-8" href="/enlaces/">Enlaces</a>
+  <a class="px-8" href="/contacto/">Contacto</a>
+</div>

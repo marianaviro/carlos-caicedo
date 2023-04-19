@@ -1,0 +1,160 @@
+---
+import Hamburger from "./Hamburger.astro";
+import Navigation from "./Navigation.astro";
+import hamburger from "../images/pink-star.svg";
+import toggle from "../images/menu-toggle.svg";
+const { isIndex } = Astro.props;
+---
+
+<header class="z-50 w-full text-center fixed top-8 md:top-10">
+  <nav class="w-full">
+    <div
+      class="nav-container w-full h-fit flex flex-wrap items-stretch absolute -left-full top-8 bg-white/95 drop-shadow-white text-left text-black overflow-y-auto"
+    >
+      <div
+        class="pt-10 pb-2 lg:py-16 w-full h-fit lg:h-full lg:w-1/2 leading-extra-tight font-display text-[5.5rem] md:text-8xl lg:text-9xl lg:border-r-1 border-black"
+      >
+        <a class="px-8 py-3 md:py-0 block hover:text-pink" href="/">Inicio</a>
+        <p
+          class="dropdown-toggle px-8 py-3 md:py-0 block hover:text-pink cursor-pointer"
+        >
+          Sobre <span class="pl-4">Caicedo</span>
+        </p>
+        <div class="dropdown hidden pl-12 font-serif font-bold text-5xl italic">
+          <a class="px-8 py-3 block hover:text-pink" href="/cronologia/"
+            >Cronología</a
+          >
+          <a class="px-8 py-3 block hover:text-pink" href="/entrevistas/"
+            >Entrevistas</a
+          >
+        </div>
+        <a class="px-8 py-3 md:py-0 block hover:text-pink" href="/contenidos/"
+          >Contenidos</a
+        >
+      </div>
+      <div class="w-full lg:w-1/2 flex flex-col">
+        <div
+          class="grow flex flex-col justify-end pt-16 lg:pt-24 pb-2 px-8 w-full bg-yellow/75 border-y-1 lg:border-t-0 lg:border-b-1 border-black"
+        >
+          <p class="uppercase italic font-sans font-bold tracking-widest">
+            Otras secciones
+          </p>
+        </div>
+        <div class="flex flex-row flex-nowrap">
+          <div
+            class="exclamation w-2/3 pt-4 pb-6 flex flex-col justify-around font-serif font-bold text-5xl italic border-r-1 border-black"
+          >
+            <a class="px-8 py-4 block hover:text-pink" href="/equipo">Equipo</a>
+            <a class="px-8 py-4 block hover:text-pink" href="/enlaces/"
+              >Enlaces</a
+            >
+            <a class="px-8 py-4 block hover:text-pink" href="/contacto/"
+              >Contacto</a
+            >
+          </div>
+          <div class="w-1/3 pb-4 flex flex-col items-center justify-around">
+            <a class="mail w-10 h-10" href="mailto:juani-so@uniandes.edu.co"
+            ></a>
+            <a
+              class="insta w-10 h-10"
+              href="https://www.instagram.com/badacuniandes/"></a>
+            <a class="info w-10 h-10" href="/footer"></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="navbar relative">
+      <div class="hamburger h-8 px-12 md:px-16 flex items-center justify-start">
+        <div class="flex items-center justify-center">
+          <img
+            src={hamburger}
+            alt="Menu button container"
+            class="absolute h-20 w-20 md:h-24 md:w-24 drop-shadow-orange cursor-pointer"
+          />
+          <img
+            src={toggle}
+            alt="Menu toggle button"
+            class="toggle absolute h-10 w-10 md:h-12 md:w-12 cursor-pointer"
+          />
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<style>
+  .navbar {
+    background-image: url("../images/header-bg-mobile.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+  }
+
+  .toggle {
+    rotate: 0deg;
+    transition: rotate 0.5s;
+  }
+
+  .rotated {
+    rotate: 45deg;
+    transition: rotate 0.5s;
+  }
+
+  .collapsed {
+    translate: -100%;
+    transition: translate 1s;
+  }
+
+  .expanded {
+    translate: 100%;
+    transition: translate 0.5s;
+  }
+
+  .exclamation {
+    background-image: url("../images/exclamation.png");
+    background-position: right center;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+
+  .mail {
+    background-image: url("../images/mail.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+
+  .insta {
+    background-image: url("../images/insta.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+
+  .info {
+    background-image: url("../images/info.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+
+  .mail:hover,
+  .insta:hover {
+    background-image: url("../images/external-link.svg");
+  }
+
+  .info:hover {
+    background-image: url("../images/info-active.svg");
+  }
+
+  @media screen and (min-width: 700px) {
+    .navbar {
+      background-image: url("../images/header-bg-tablet.png");
+    }
+  }
+
+  @media screen and (min-width: 1280px) {
+    .navbar {
+      background-image: url("../images/header-bg-desktop.png");
+    }
+  }
+</style>
