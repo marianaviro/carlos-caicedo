@@ -6,19 +6,31 @@ const pageTitle = "Home Page";
 <BaseLayout pageTitle={pageTitle} isIndex={true}>
   <div class="title relative w-screen min-h-screen">
     <div class="z-0 absolute w-full h-full bg-black/30"></div>
-    <div class="pt-24 uppercase text-white text-center">
+    <div class="pt-24 relative uppercase text-white text-center">
       <p
         class="z-50 mb-3 lg:mb-6 drop-shadow-white-sm font-sans font-semibold tracking-widest italic underline text-md lg:text-lg"
       >
         Carlos Caicedo
       </p>
       <div
-        class="z-50 drop-shadow-white-md font-display leading-very-tight sm:leading-extra-tight text-full-mobile sm:text-9xl md:text-[10rem] lg:text-full-desktop"
+        class="z-50 px-4 drop-shadow-white-md font-display leading-very-tight sm:leading-extra-tight text-full-mobile sm:text-9xl md:text-[10rem] lg:text-full-desktop"
       >
         <h1>Moderno</h1>
         <h1>Vernáculo</h1>
       </div>
     </div>
+  </div>
+  <div
+    class="bg-white uppercase font-display leading-very-tight sm:leading-extra-tight text-full-mobile sm:text-9xl md:text-[10rem] lg:text-full-desktop"
+  >
+    <h1 class="text-left">Carlos</h1>
+    <h1 class="text-right">Caicedo</h1>
+  </div>
+  <div class="px-4 bg-yellow text-black">
+    <h1 class="font-serif font-bold text-6xl italic">Un moderno vernáculo.</h1>
+    <p class="font-sans underline tracking-wide">
+      Por: Juanita Solano Roa, Bianca Salvo y Camilo Hernández
+    </p>
   </div>
 </BaseLayout>
 <style>

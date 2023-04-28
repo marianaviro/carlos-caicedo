@@ -1,0 +1,110 @@
+---
+---
+
+<div
+  class="z-0 relative -left-full top-16 md:top-18 nav-container w-full flex flex-wrap items-stretch bg-white/95 text-left text-black"
+>
+  <div
+    class="pt-10 pb-2 lg:py-16 w-full lg:w-1/2 leading-extra-tight font-display text-[5.5rem] md:text-8xl lg:text-9xl lg:border-r-1 border-black"
+  >
+    <a class="px-8 py-3 md:py-0 block hover:text-pink" href="/">Inicio</a>
+    <p class="dropdown-toggle px-8 py-3 md:py-0 block cursor-pointer">
+      Sobre <span class="pl-4">Caicedo</span>
+    </p>
+    <div class="dropdown hidden pl-12 font-serif font-bold text-5xl italic">
+      <a class="px-8 py-3 block hover:text-pink" href="/cronologia/"
+        >Cronología</a
+      >
+      <a class="px-8 py-3 block hover:text-pink" href="/entrevistas/"
+        >Entrevistas</a
+      >
+    </div>
+    <a class="px-8 py-3 md:py-0 block hover:text-pink" href="/contenidos/"
+      >Contenidos</a
+    >
+  </div>
+  <div class="w-full lg:w-1/2 flex flex-col">
+    <div
+      class="grow flex flex-col justify-end pt-16 lg:pt-24 pb-2 px-8 w-full bg-yellow border-y-1 lg:border-t-0 lg:border-b-1 border-black"
+    >
+      <p class="uppercase italic font-sans font-bold tracking-widest">
+        Otras secciones
+      </p>
+    </div>
+    <div class="flex flex-row flex-nowrap">
+      <div
+        class="exclamation w-2/3 pt-4 pb-6 flex flex-col justify-around font-serif font-bold text-5xl italic border-r-1 border-black"
+      >
+        <a class="px-8 py-4 block hover:text-pink" href="/equipo">Equipo</a>
+        <a class="px-8 py-4 block hover:text-pink" href="/enlaces/">Enlaces</a>
+        <a class="px-8 py-4 block hover:text-pink" href="/contacto/">Contacto</a
+        >
+      </div>
+      <div class="w-1/3 pb-4 flex flex-col items-center justify-around">
+        <a class="mail w-10 h-10" href="mailto:juani-so@uniandes.edu.co"></a>
+        <a
+          class="insta w-10 h-10"
+          href="https://www.instagram.com/badacuniandes/"></a>
+        <a class="info w-10 h-10" href="/footer"></a>
+      </div>
+    </div>
+  </div>
+</div>
+<style>
+  @tailwind base;
+  @tailwind components;
+  @tailwind utilities;
+
+  .collapsed {
+    translate: -100%;
+    transition: translate 1s;
+  }
+
+  .expanded {
+    translate: 100%;
+    transition: translate 0.5s;
+  }
+
+  .exclamation {
+    background-image: url("../images/exclamation.png");
+    background-position: right center;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+
+  .mail {
+    background-image: url("../images/mail.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+
+  .insta {
+    background-image: url("../images/insta.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+
+  .info {
+    background-image: url("../images/info.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+
+  .mail:hover,
+  .insta:hover {
+    background-image: url("../images/external-link.svg");
+  }
+
+  .info:hover {
+    background-image: url("../images/info-active.svg");
+  }
+
+  @media (hover: hover) {
+    .dropdown-toggle:hover {
+      @apply text-pink;
+    }
+  }
+</style>

@@ -5,13 +5,12 @@ module.exports = {
     extend: {
       colors: {
         black: "#191919",
-        yellow: "#ffe200",
+        yellow: "#f6d700",
         orange: "#fc5e02",
         pink: "#ff74df",
         white: "#f8f7f1",
       },
       fontFamily: {
-        // sans: ['"Arial Narrow"', "Arial", "sans-serif"],
         sans: ["proxima-nova-condensed", "Arial", "sans-serif"],
         display: ["Gregor", "Impact", "sans-serif"],
         serif: ["Bagatela", "Times New Roman", "serif"],
