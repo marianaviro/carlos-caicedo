@@ -3,6 +3,9 @@ module.exports = {
   content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
   theme: {
     extend: {
+      screens: {
+        "mobile-medium": "375px",
+      },
       colors: {
         black: "#191919",
         yellow: "#f6d700",

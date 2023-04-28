@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 const pageTitle = "Home Page";
+import { Content as Intro } from "../pages/posts/intro.mdx";
 ---
 
 <BaseLayout pageTitle={pageTitle} isIndex={true}>
@@ -13,7 +14,7 @@ const pageTitle = "Home Page";
         Carlos Caicedo
       </p>
       <div
-        class="z-50 px-4 drop-shadow-white-md font-display leading-very-tight sm:leading-extra-tight text-full-mobile sm:text-9xl md:text-[10rem] lg:text-full-desktop"
+        class="z-50 px-4 drop-shadow-white-md font-display leading-very-tight sm:leading-extra-tight text-[5rem] mobile-medium:text-full-mobile sm:text-9xl md:text-[10rem] lg:text-full-desktop"
       >
         <h1>Moderno</h1>
         <h1>Vernáculo</h1>
@@ -31,6 +32,9 @@ const pageTitle = "Home Page";
     <p class="font-sans underline tracking-wide">
       Por: Juanita Solano Roa, Bianca Salvo y Camilo Hernández
     </p>
+  </div>
+  <div class="bg-white">
+    <Intro />
   </div>
 </BaseLayout>
 <style>

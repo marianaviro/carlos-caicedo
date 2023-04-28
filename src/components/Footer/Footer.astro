@@ -1,0 +1,33 @@
+---
+import FooterLinks from "./FooterLinks.astro";
+import Logos from "./Logos.astro";
+---
+
+<footer class="bg-black text-white">
+  <div class="h-5 bar w-full"></div>
+  <div class="flex flex-wrap items-center justify-center">
+    <FooterLinks />
+    <Logos />
+  </div>
+  <div class="h-5 bar w-full"></div>
+</footer>
+<style>
+  .bar {
+    background-image: url("../../images/header-bg-mobile.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+  }
+
+  @media screen and (min-width: 700px) {
+    .bar {
+      background-image: url("../../images/header-bg-tablet.png");
+    }
+  }
+
+  @media screen and (min-width: 1280px) {
+    .bar {
+      background-image: url("../../images/header-bg-desktop.png");
+    }
+  }
+</style>

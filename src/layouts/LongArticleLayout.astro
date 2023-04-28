@@ -1,13 +1,13 @@
 ---
-import Header from "../components/Header.astro";
+import BaseLayout from "./BaseLayout.astro";
 import "../styles/global.css";
-const { isIndex } = Astro.props;
 const { frontmatter } = Astro.props;
 ---
 
-<Header isIndex={isIndex} />
-<div class="bg-white">
-  <h1>{frontmatter.title}</h1>
-  <p>Written by {frontmatter.author}</p>
-  <slot />
-</div>
+<BaseLayout url={frontmatter.url}>
+  <div class="bg-white">
+    <h1>{frontmatter.title}</h1>
+    <p>Written by {frontmatter.author}</p>
+    <slot />
+  </div>
+</BaseLayout>

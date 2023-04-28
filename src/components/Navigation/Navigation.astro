@@ -1,6 +1,6 @@
 ---
-import Dropdown from "./Dropdown.astro";
-import Navbar from "./Navbar.astro";
+import Menu from "./Menu.astro";
+import FixedBar from "./FixedBar.astro";
 const { isIndex } = Astro.props;
 const bgColor = isIndex ? "bg-black" : "bg-white";
 ---
@@ -8,10 +8,9 @@ const bgColor = isIndex ? "bg-black" : "bg-white";
 <nav class="z-50 w-full text-center absolute top-0 left-0 right-0">
   <div class="w-full fixed z-50">
     <div class={bgColor + " h-8"}></div>
-    <Navbar />
+    <FixedBar />
   </div>
   <div class="nav-dropdown fixed overflow-y-scroll w-full h-full">
-    <Dropdown />
+    <Menu />
   </div>
 </nav>
-<style></style>

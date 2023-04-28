@@ -1,5 +1,6 @@
 ---
-import Header from "../components/Header.astro";
+import Navigation from "../components/Navigation/Navigation.astro";
+import Footer from "../components/Footer/Footer.astro";
 import "../styles/global.css";
 const { pageTitle, isIndex } = Astro.props;
 ---
@@ -14,10 +15,11 @@ const { pageTitle, isIndex } = Astro.props;
     <title>{pageTitle}</title>
   </head>
   <body>
-    <Header isIndex={isIndex} />
+    <Navigation isIndex={isIndex} />
     <div class="content">
       <slot />
     </div>
+    <Footer />
     <script>
       import "../scripts/menu.js";
     </script>

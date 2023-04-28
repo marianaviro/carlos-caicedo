@@ -5,9 +5,6 @@ document.querySelector(".hamburger").addEventListener("click", () => {
   //Rotate toggle icon
   document.querySelector(".toggle").classList.toggle("rotated");
 
-  //Show nav
-  // document.querySelector(".nav-dropdown").classList.toggle("hidden");
-
   //Toggle nav container
   if (document.querySelector(".nav-container").classList.contains("expanded")) {
     document.querySelector(".nav-container").classList.remove("expanded");
