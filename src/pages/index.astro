@@ -1,7 +1,11 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 const pageTitle = "Home Page";
-import { Content as Intro } from "../pages/posts/intro.mdx";
+import * as Intro from "../pages/posts/index.mdx";
+import { Content as Content } from "../pages/posts/index.mdx";
+import arrow from "../images/arrow.svg";
+import exclamation from "../images/exclamation.png";
+import spark from "../images/spark.png";
 ---
 
 <BaseLayout pageTitle={pageTitle} isIndex={true}>
@@ -20,21 +24,50 @@ import { Content as Intro } from "../pages/posts/intro.mdx";
         <h1>Vernáculo</h1>
       </div>
     </div>
-  </div>
-  <div
-    class="bg-white uppercase font-display leading-very-tight sm:leading-extra-tight text-full-mobile sm:text-9xl md:text-[10rem] lg:text-full-desktop"
-  >
-    <h1 class="text-left">Carlos</h1>
-    <h1 class="text-right">Caicedo</h1>
-  </div>
-  <div class="px-4 bg-yellow text-black">
-    <h1 class="font-serif font-bold text-6xl italic">Un moderno vernáculo.</h1>
-    <p class="font-sans underline tracking-wide">
-      Por: Juanita Solano Roa, Bianca Salvo y Camilo Hernández
-    </p>
+    <div class="">
+      <img
+        src={arrow}
+        alt="Continue reading"
+        class="absolute bottom-4 left-4 h-28 md:h-36 cursor-pointer"
+      />
+    </div>
   </div>
   <div class="bg-white">
-    <Intro />
+    <div
+      class="max-w-xs mobile-medium:max-w-md md:max-w-xl lg:max-w-3xl relative pt-2 pb-4 px-4 sm:px-10 md:pl-14 lg:pl-20 uppercase font-display leading-very-tight sm:leading-extra-tight text-[7rem] sm:text-9xl md:text-[10rem] lg:text-full-desktop"
+    >
+      <h1 class="z-20 relative text-left">Carlos</h1>
+      <h1 class="z-20 relative text-right">Caicedo</h1>
+      <img
+        src={exclamation}
+        alt=""
+        class="z-0 absolute -bottom-10 right-0 h-40 md:h-56 md:-bottom-8"
+      />
+      <img
+        src={spark}
+        alt=""
+        class="z-20 absolute bottom-12 md:bottom-16 lg:bottom-24 left-32 h-24 md:h-28 lg:h-36"
+      />
+    </div>
+  </div>
+  <div class="px-10 md:pl-14 lg:pl-20 py-4 bg-yellow text-black">
+    <div class="max-w-xs">
+      <h1
+        class="font-serif font-bold text-[4rem] mobile-medium:text-7xl leading-very-tight mobile-medium:leading-very-tight italic"
+      >
+        {Intro.frontmatter.title}
+      </h1>
+    </div>
+    <div class="py-6 leading-tight">
+      <p class="italic font-sans underline tracking-wide">
+        Por: {Intro.frontmatter.author}
+      </p>
+    </div>
+  </div>
+  <div class="px-10 md:pl-14 lg:pl-20 py-10 lg:py-20 bg-white">
+    <div class="max-w-xs md:max-w-xl lg:max-w-screen-md text-lg">
+      <Content />
+    </div>
   </div>
 </BaseLayout>
 <style>

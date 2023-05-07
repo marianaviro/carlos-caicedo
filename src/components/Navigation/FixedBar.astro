@@ -1,20 +1,26 @@
 ---
-import hamburger from "../../images/pink-star.svg";
-import toggle from "../../images/menu-toggle.svg";
+import star from "../../images/pink-star.svg";
+import cancel from "../../images/cancel.svg";
+import hamburger from "../../images/hamburger.svg";
 ---
 
 <div class="z-50 navbar absolute top-8 md:top-10 w-full">
-  <div class="hamburger h-8 px-12 md:px-16 flex items-center justify-start">
+  <div class="toggle h-8 px-12 md:px-16 flex items-center justify-start">
     <div class="flex items-center justify-center">
       <img
-        src={hamburger}
+        src={star}
         alt="Menu button container"
-        class="absolute h-20 w-20 md:h-24 md:w-24 drop-shadow-orange cursor-pointer"
+        class="star absolute h-20 w-20 md:h-24 md:w-24 drop-shadow-orange cursor-pointer"
       />
       <img
-        src={toggle}
-        alt="Menu toggle button"
-        class="toggle absolute h-10 w-10 md:h-12 md:w-12 cursor-pointer"
+        src={hamburger}
+        alt="Menu hamburger icon"
+        class="hamburger increase absolute h-6 w-6 md:h-7 md:w-7 cursor-pointer"
+      />
+      <img
+        src={cancel}
+        alt="Menu cancel button"
+        class="cancel shrink absolute h-6 w-6 md:h-7 md:w-7 cursor-pointer"
       />
     </div>
   </div>
@@ -27,7 +33,7 @@ import toggle from "../../images/menu-toggle.svg";
     background-size: 100% 100%;
   }
 
-  .toggle {
+  .star {
     rotate: 0deg;
     transition: rotate 0.5s;
   }
@@ -35,6 +41,16 @@ import toggle from "../../images/menu-toggle.svg";
   .rotated {
     rotate: 45deg;
     transition: rotate 0.5s;
+  }
+
+  .shrink {
+    scale: 0;
+    transition: scale 0.5s;
+  }
+
+  .increase {
+    scale: 1;
+    transition: scale 0.5s;
   }
 
   @media screen and (min-width: 700px) {
