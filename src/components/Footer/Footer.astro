@@ -1,15 +1,25 @@
 ---
 import FooterLinks from "./FooterLinks.astro";
+import LegalNotice from "./LegalNotice.astro";
 import Logos from "./Logos.astro";
 ---
 
 <footer class="bg-black text-white">
   <div class="h-5 bar w-full"></div>
-  <div class="flex flex-wrap items-center justify-center">
-    <FooterLinks />
-    <Logos />
+  <div
+    class="flex flex-wrap md:flex-no-wrap items-end md:justify-center lg:justify-around"
+  >
+    <div class="my-12 w-full md:max-w-[400px]">
+      <FooterLinks />
+    </div>
+    <div class="my-8 w-full md:max-w-[400px]">
+      <Logos />
+    </div>
+    <div class="my-12 w-full md:max-w-[400px]">
+      <LegalNotice />
+    </div>
   </div>
-  <div class="h-5 bar w-full"></div>
+  <div class="md:hidden h-5 bar w-full"></div>
 </footer>
 <style>
   .bar {

@@ -9,9 +9,15 @@ document.querySelector(".hamburger").addEventListener("click", () => {
   if (document.querySelector(".nav-container").classList.contains("expanded")) {
     document.querySelector(".nav-container").classList.remove("expanded");
     document.querySelector(".nav-container").classList.add("collapsed");
+    document
+      .querySelector(".nav-dropdown")
+      .classList.remove("overflow-y-scroll");
+    document.querySelector(".nav-dropdown").classList.add("overflow-hidden");
   } else {
     document.querySelector(".nav-container").classList.remove("collapsed");
     document.querySelector(".nav-container").classList.add("expanded");
+    document.querySelector(".nav-dropdown").classList.remove("overflow-hidden");
+    document.querySelector(".nav-dropdown").classList.add("overflow-y-scroll");
   }
 });
 
