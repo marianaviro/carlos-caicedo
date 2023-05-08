@@ -7,10 +7,10 @@ const bgColor = isIndex ? "bg-black" : "bg-white";
 
 <nav class="z-50 w-full text-center absolute top-0 left-0 right-0">
   <div class="w-full fixed z-50">
-    <div class={bgColor + " h-8"}></div>
+    <div class={bgColor + " h-8 md:h-10"}></div>
     <FixedBar />
   </div>
-  <div class="nav-dropdown fixed overflow-hidden w-full h-full">
+  <div class="nav-dropdown hidden fixed overflow-hidden w-full h-full">
     <Menu />
   </div>
 </nav>

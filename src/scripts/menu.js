@@ -5,6 +5,9 @@ document.querySelector(".toggle").addEventListener("click", () => {
   //Rotate hamburger container
   document.querySelector(".star").classList.toggle("rotated");
 
+  //Hide or show overlay
+  document.querySelector(".nav-dropdown").classList.toggle("hidden");
+
   //Toggle nav container
   if (document.querySelector(".nav-container").classList.contains("expanded")) {
     document.querySelector(".nav-container").classList.remove("expanded");

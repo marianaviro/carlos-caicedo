@@ -1,0 +1,21 @@
+---
+import "../styles/global.css";
+const { frontmatter } = Astro.props;
+---
+
+<div class="article">
+  <slot />
+</div>
+<style is:global>
+  @tailwind base;
+  @tailwind components;
+  @tailwind utilities;
+
+  .article p {
+    @apply pt-4 pb-10;
+  }
+
+  .article p:first-of-type {
+    @apply pt-14;
+  }
+</style>

@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "./BaseLayout.astro";
+import ArticleLayout from "./ArticleLayout.astro";
 import "../styles/global.css";
 const { frontmatter } = Astro.props;
 ---
@@ -8,6 +9,8 @@ const { frontmatter } = Astro.props;
   <div class="bg-white">
     <h1>{frontmatter.title}</h1>
     <p>Written by {frontmatter.author}</p>
-    <slot />
+    <ArticleLayout>
+      <slot />
+    </ArticleLayout>
   </div>
 </BaseLayout>

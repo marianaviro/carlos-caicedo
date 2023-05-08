@@ -1,0 +1,7 @@
+---
+const props = Astro.props;
+---
+
+<button {...props} id={props.numero} class="tippy" data-tippy-content="Prueba"
+  >{props.numero}</button
+>

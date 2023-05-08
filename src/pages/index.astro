@@ -3,9 +3,9 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 const pageTitle = "Home Page";
 import * as Intro from "../pages/posts/index.mdx";
 import { Content as Content } from "../pages/posts/index.mdx";
-import arrow from "../images/arrow.svg";
-import exclamation from "../images/exclamation.png";
-import spark from "../images/spark.png";
+import arrow from "../images/arrow.svg?url";
+import exclamation from "../images/exclamation.png?url";
+import spark from "../images/spark.png?url";
 ---
 
 <BaseLayout pageTitle={pageTitle} isIndex={true}>
@@ -34,26 +34,26 @@ import spark from "../images/spark.png";
   </div>
   <div class="bg-white">
     <div
-      class="max-w-xs mobile-medium:max-w-md md:max-w-xl lg:max-w-3xl relative pt-2 pb-4 px-4 sm:px-10 md:pl-14 lg:pl-20 uppercase font-display leading-very-tight sm:leading-extra-tight text-[7rem] sm:text-9xl md:text-[10rem] lg:text-full-desktop"
+      class="relative py-14 md:py-10 px-4 medium-mobile:px-10 uppercase font-display leading-very-tight sm:leading-extra-tight text-[7.5rem] mobile-medium:text-[9rem] sm:text-[12rem] md:text-[14rem] lg:text-[17rem] xl:text-[18rem]"
     >
       <h1 class="z-20 relative text-left">Carlos</h1>
       <h1 class="z-20 relative text-right">Caicedo</h1>
       <img
         src={exclamation}
         alt=""
-        class="z-0 absolute -bottom-10 right-0 h-40 md:h-56 md:-bottom-8"
+        class="z-0 absolute -bottom-6 right-4 md:-bottom-8 lg:-bottom-12 h-56 md:h-60 lg:h-80 xl:h-96"
       />
       <img
         src={spark}
         alt=""
-        class="z-20 absolute bottom-12 md:bottom-16 lg:bottom-24 left-32 h-24 md:h-28 lg:h-36"
+        class="z-20 absolute bottom-24 md:bottom-36 lg:bottom-36 left-32 md:left-40 lg:left-44 xl:left-80 h-24 md:h-36 lg:h-44"
       />
     </div>
   </div>
-  <div class="px-10 md:pl-14 lg:pl-20 py-4 bg-yellow text-black">
+  <div class="px-10 md:pl-14 lg:pl-20 py-4 md:py-10 bg-yellow text-black">
     <div class="max-w-xs">
       <h1
-        class="font-serif font-bold text-[4rem] mobile-medium:text-7xl leading-very-tight mobile-medium:leading-very-tight italic"
+        class="font-serif font-bold text-[4rem] mobile-medium:text-7xl lg:text-8xl leading-very-tight md:leading-none lg:leading-[0.85] italic"
       >
         {Intro.frontmatter.title}
       </h1>
@@ -64,8 +64,10 @@ import spark from "../images/spark.png";
       </p>
     </div>
   </div>
-  <div class="px-10 md:pl-14 lg:pl-20 py-10 lg:py-20 bg-white">
-    <div class="max-w-xs md:max-w-xl lg:max-w-screen-md text-lg">
+  <div class="px-4 md:px-10 md:pl-14 lg:pl-20 py-10 lg:py-20 bg-white">
+    <div
+      class="max-w-xs mobile-medium:max-w-md md:max-w-xl lg:max-w-screen-md text-lg font-serif hyphens-auto"
+    >
       <Content />
     </div>
   </div>

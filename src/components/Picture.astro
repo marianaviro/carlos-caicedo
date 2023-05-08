@@ -1,0 +1,34 @@
+---
+const props = Astro.props;
+import { Image } from "@astrojs/image/components";
+---
+
+<div class="picture font-sans text-base text-center">
+  <Image
+    src={props.foto}
+    class="foto"
+    width="600"
+    height="400"
+    alt="The Astro logo"
+  />
+  <p class="titulo uppercase font-bold italic tracking-wider">{props.titulo}</p>
+  <p class="">{props.descripcion}</p>
+</div>
+
+<style is:global>
+  @tailwind base;
+  @tailwind components;
+  @tailwind utilities;
+  .article .picture {
+    @apply py-6;
+  }
+  .article .picture p.titulo {
+    @apply pt-4 pb-0;
+  }
+  .article .picture p {
+    @apply py-0;
+  }
+  .article .picture .foto {
+    @apply border-2 border-black;
+  }
+</style>

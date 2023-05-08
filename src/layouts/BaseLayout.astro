@@ -3,6 +3,7 @@ import Navigation from "../components/Navigation/Navigation.astro";
 import Footer from "../components/Footer/Footer.astro";
 import "../styles/global.css";
 const { pageTitle, isIndex } = Astro.props;
+import { Picture } from "@astrojs/image/components";
 ---
 
 <html lang="en">
@@ -16,12 +17,18 @@ const { pageTitle, isIndex } = Astro.props;
   </head>
   <body>
     <Navigation isIndex={isIndex} />
-    <div class="content">
+    <div class="content z-40">
       <slot />
     </div>
     <Footer />
     <script>
+      import tippy from "tippy.js";
+      import "tippy.js/dist/tippy.css";
       import "../scripts/menu.js";
+
+      tippy("[data-tippy-content]", {
+        delay: [1000, 200],
+      });
     </script>
   </body>
 </html>
