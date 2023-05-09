@@ -7,15 +7,19 @@ const { frontmatter } = Astro.props;
   <slot />
 </div>
 <style is:global>
-  @tailwind base;
-  @tailwind components;
-  @tailwind utilities;
-
   .article p {
-    @apply pt-4 pb-10;
+    @apply pt-4 pb-6;
   }
 
   .article p:first-of-type {
-    @apply pt-12 lg:pt-4;
+    @apply pt-6 lg:pt-4;
+  }
+
+  .article a {
+    @apply text-orange underline decoration-dotted underline-offset-4 hover:text-pink hover:decoration-solid;
+  }
+
+  .article h2 {
+    @apply mt-12 mb-4 text-4xl font-bold;
   }
 </style>

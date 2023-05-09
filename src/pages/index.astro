@@ -50,33 +50,29 @@ import spark from "../images/spark.png?url";
       />
     </div>
   </div>
-  <div class="px-10 md:pl-14 lg:pl-20 py-4 md:py-10 bg-yellow text-black">
-    <div class="max-w-xs">
-      <h1
-        class="font-serif font-bold text-[4rem] mobile-medium:text-7xl lg:text-8xl leading-very-tight md:leading-none lg:leading-[0.85] italic"
-      >
-        {Intro.frontmatter.title}
-      </h1>
-    </div>
-    <div class="py-6 leading-tight">
-      <p class="italic font-sans underline tracking-wide">
-        Por: {Intro.frontmatter.author}
-      </p>
+  <div class="container text-left py-10 bg-yellow text-black">
+    <div class="wrapper w-full">
+      <div class="max-w-xs">
+        <h1
+          class="font-serif font-bold text-[4rem] mobile-medium:text-7xl lg:text-8xl leading-none lg:leading-[0.85] italic"
+        >
+          {Intro.frontmatter.title}
+        </h1>
+        <div class="py-6 leading-tight">
+          <p class="italic font-sans underline tracking-wide">
+            Por: {Intro.frontmatter.author}
+          </p>
+        </div>
+      </div>
     </div>
   </div>
-  <div class="px-4 md:px-10 md:pl-14 lg:pl-20 py-10 lg:py-20 bg-white">
-    <div
-      class="max-w-xs mobile-medium:max-w-md md:max-w-xl lg:max-w-screen-md text-lg font-serif hyphens-auto"
-    >
+  <div class="container py-10 bg-white">
+    <div class="wrapper text-lg font-serif hyphens-auto">
       <Content />
     </div>
   </div>
 </BaseLayout>
 <style>
-  @tailwind base;
-  @tailwind components;
-  @tailwind utilities;
-
   body {
     @apply bg-black;
   }
@@ -86,5 +82,15 @@ import spark from "../images/spark.png?url";
     background-position: left top;
     background-repeat: no-repeat;
     background-size: cover;
+  }
+
+  .container {
+    @apply max-w-full;
+    @apply flex flex-col items-center;
+  }
+
+  .wrapper {
+    @apply max-w-xs mobile-medium:max-w-[90%] md:max-w-[80%] lg:max-w-[70%] xl:max-w-[60%];
+    @apply px-4 md:px-10 md:pl-14 lg:pl-20;
   }
 </style>

@@ -2,6 +2,22 @@
 const props = Astro.props;
 ---
 
-<button {...props} id={props.numero} class="tippy" data-tippy-content="Prueba"
-  >{props.numero}</button
+<button
+  {...props}
+  id={props.numero}
+  class="footnote"
+  data-tippy-content={props.contenido}><sup>{props.numero}</sup></button
 >
+
+<script>
+  import tippy from "../scripts/footnotes.js";
+
+  tippy("[data-tippy-content]", {
+    trigger: "click",
+  });
+</script>
+<style>
+  .footnote {
+    @apply font-bold text-orange hover:text-black;
+  }
+</style>

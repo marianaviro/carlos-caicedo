@@ -1,7 +1,6 @@
 ---
 import Navigation from "../components/Navigation/Navigation.astro";
 import Footer from "../components/Footer/Footer.astro";
-import "../styles/global.css";
 const { pageTitle, isIndex } = Astro.props;
 import { Picture } from "@astrojs/image/components";
 ---
@@ -17,25 +16,27 @@ import { Picture } from "@astrojs/image/components";
   </head>
   <body>
     <Navigation isIndex={isIndex} />
-    <div class="content z-40">
+    <div class="z-40">
       <slot />
     </div>
     <Footer />
     <script>
-      import tippy from "tippy.js";
-      import "tippy.js/dist/tippy.css";
       import "../scripts/menu.js";
-
-      tippy("[data-tippy-content]", {
-        delay: [1000, 200],
-      });
     </script>
   </body>
 </html>
-<style>
+<style is:global>
   @tailwind base;
   @tailwind components;
   @tailwind utilities;
+  @font-face {
+    font-family: "Gregor";
+    src: url("/fonts/Gregor.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
+
   * {
     margin: 0;
     padding: 0;
@@ -43,5 +44,9 @@ import { Picture } from "@astrojs/image/components";
 
   body {
     @apply bg-white;
+  }
+
+  .unscrollable {
+    overflow: hidden;
   }
 </style>
