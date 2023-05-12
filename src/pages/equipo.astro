@@ -1,0 +1,39 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+const pageTitle = "Equipo";
+import ribbon from "../images/ribbon.png?url";
+---
+
+<BaseLayout pageTitle={pageTitle} isIndex={true}>
+  <div
+    class="relative pt-28 pb-14 px-4 medium-mobile:px-10 md:pl-32 uppercase font-display leading-very-tight sm:leading-extra-tight text-[8.2rem] mobile-medium:text-[9.5rem] sm:text-[12rem] md:text-[16rem] lg:text-[17rem] xl:text-[18rem] bg-white"
+  >
+    <h1 class="z-20 relative text-left">EL</h1>
+    <h1 class="z-20 relative text-left">Equipo</h1>
+    <img
+      src={ribbon}
+      alt=""
+      class="z-20 absolute top-16 mobile-medium:top-18 md:top-18 lg:top-24 left-24 mobile-medium:left-32 md:left-72 lg:left-80 h-40 mobile-medium:h-44 md:h-64 lg:h-60 xl:h-64"
+    />
+  </div>
+  <div class="w-full bg-yellow py-16 px-4 medium-mobile:px-10 md:pl-32">
+    <p class="uppercase text-black font-sans tracking-wider lg:text-lg">
+      Conoce a los estudiantes y profesores detrás de este proyecto.
+    </p>
+  </div>
+</BaseLayout>
+<style>
+  body {
+    @apply bg-black;
+  }
+
+  .container {
+    @apply max-w-full;
+    @apply flex flex-col items-center;
+  }
+
+  .wrapper {
+    @apply max-w-xs mobile-medium:max-w-[90%] md:max-w-[80%] lg:max-w-[70%] xl:max-w-[60%];
+    @apply px-4 md:px-10 md:pl-14 lg:pl-20;
+  }
+</style>

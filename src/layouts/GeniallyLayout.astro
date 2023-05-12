@@ -1,0 +1,20 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+import HeadingLayout from "./HeadingLayout.astro";
+import "../styles/global.css";
+const { frontmatter } = Astro.props;
+---
+
+<BaseLayout url={frontmatter.url}>
+  <div class="bg-black text-white">
+    <HeadingLayout
+      title={frontmatter.titulo}
+      author={frontmatter.autoria}
+      tags={frontmatter.tags}
+      image={frontmatter.imagen?.archivo}
+    />
+    <div class="bg-black">
+      <slot />
+    </div>
+  </div>
+</BaseLayout>

@@ -1,8 +1,8 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 const pageTitle = "Home Page";
-import * as Intro from "../pages/posts/index.mdx";
-import { Content as Content } from "../pages/posts/index.mdx";
+import * as Intro from "../pages/contenido/index.mdx";
+import { Content as Content } from "../pages/contenido/index.mdx";
 import arrow from "../images/arrow.svg?url";
 import exclamation from "../images/exclamation.png?url";
 import spark from "../images/spark.png?url";
@@ -28,7 +28,7 @@ import spark from "../images/spark.png?url";
       <img
         src={arrow}
         alt="Continue reading"
-        class="absolute bottom-4 left-4 h-28 md:h-36 cursor-pointer"
+        class="absolute bottom-10 left-7 h-28 md:h-36 cursor-pointer"
       />
     </div>
   </div>
@@ -56,21 +56,17 @@ import spark from "../images/spark.png?url";
         <h1
           class="font-serif font-bold text-[4rem] mobile-medium:text-7xl lg:text-8xl leading-none lg:leading-[0.85] italic"
         >
-          {Intro.frontmatter.title}
+          {Intro.frontmatter.titulo}
         </h1>
         <div class="py-6 leading-tight">
-          <p class="italic font-sans underline tracking-wide">
-            Por: {Intro.frontmatter.author}
+          <p class="italic font-sans underline tracking-wide text-lg">
+            Por: {Intro.frontmatter.autoria}
           </p>
         </div>
       </div>
     </div>
   </div>
-  <div class="container py-10 bg-white">
-    <div class="wrapper text-lg font-serif hyphens-auto">
-      <Content />
-    </div>
-  </div>
+  <Content />
 </BaseLayout>
 <style>
   body {
@@ -83,7 +79,6 @@ import spark from "../images/spark.png?url";
     background-repeat: no-repeat;
     background-size: cover;
   }
-
   .container {
     @apply max-w-full;
     @apply flex flex-col items-center;

@@ -1,0 +1,30 @@
+---
+titulo: "Marcos dentro de marcos: sobre el adentro y el afuera en la fotografía de Carlos Caicedo"
+autoria: "Rosa Rodríguez y Rossangélica Peralta"
+tags: ["Bogotá", "Infancia", "Ensayo visual"]
+layout: ../../layouts/GalleryLayout.astro
+---
+
+{/* NO MODIFICAR */}
+import GalleryPicture from "../../components/GalleryPicture.astro"
+
+{/* PONER FOTOGRAFIAS AQUÍ */}
+import bicicletas from "../../images/fotografias/bicicletas.png";
+import tren from "../../images/fotografias/tren.png";
+import portada from "../../images/fotografias/portada.png";
+
+<GalleryPicture
+  foto={bicicletas}
+  titulo="Figura 1"
+  descripcion="Detalle de la columna ”Ojo, señor Ripley!” de Carlos Caicedo. Publicada en El Tiempo, 25 de noviembre de 1972, 8A. Archivo Familia Caicedo."
+/>
+<GalleryPicture
+  foto={tren}
+  titulo="Figura 1"
+  descripcion="Detalle de la columna ”Ojo, señor Ripley!” de Carlos Caicedo. Publicada en El Tiempo, 25 de noviembre de 1972, 8A. Archivo Familia Caicedo."
+/>
+<GalleryPicture
+  foto={portada}
+  titulo="Figura 1"
+  descripcion="Detalle de la columna ”Ojo, señor Ripley!” de Carlos Caicedo. Publicada en El Tiempo, 25 de noviembre de 1972, 8A. Archivo Familia Caicedo."
+/>

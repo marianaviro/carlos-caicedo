@@ -1,10 +1,28 @@
 ---
 import "../styles/global.css";
+import goup from "../images/go-up.svg?url";
+import goupactive from "../images/go-up-active.svg?url";
 const { frontmatter } = Astro.props;
 ---
 
 <div class="article">
-  <slot />
+  <div class="container py-10 bg-white">
+    <div class="wrapper text-xl font-serif leading-relaxed hyphens-auto">
+      <slot />
+    </div>
+    <a href="#top" class="group py-8">
+      <img
+          src={goup}
+          alt="Ir arriba"
+          class="h-24 cursor-pointer group-hover:hidden"
+        />
+        <img
+          src={goupactive}
+          alt="Ir arriba"
+          class="hidden group-hover:block h-24 cursor-pointer"
+        />
+    </a>
+  </div>
 </div>
 <style is:global>
   .article p {
@@ -21,5 +39,32 @@ const { frontmatter } = Astro.props;
 
   .article h2 {
     @apply mt-12 mb-4 text-4xl font-bold;
+  }
+
+  .article .container {
+    @apply max-w-full;
+    @apply flex flex-col items-center;
+  }
+
+  .article .wrapper {
+    @apply max-w-xs mobile-medium:max-w-[90%] md:max-w-[80%] lg:max-w-[70%] xl:max-w-[60%];
+    @apply px-4 md:px-10 md:pl-14 lg:pl-20;
+  }
+
+  .article ul {
+    @apply pl-2 list-disc list-inside;
+  }
+
+  .article li {
+    @apply pt-6 break-words;
+  }
+
+  .article li:last-of-type {
+    @apply pb-12;
+  }
+
+  .article p:last-of-type {
+    display: inline;
+    position: relative;
   }
 </style>

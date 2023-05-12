@@ -4,11 +4,7 @@ import { Image } from "@astrojs/image/components";
 ---
 
 <div class="py-6 font-sans text-base text-center">
-  <Image
-    src={props.foto}
-    class="border-2 border-black mx-auto"
-    alt={props.descripcion}
-  />
+  <Image src={props.foto} class="mx-auto" alt={props.descripcion} />
   <p class="!pt-4 !pb-0 uppercase font-bold italic tracking-wider">
     {props.titulo}
   </p>

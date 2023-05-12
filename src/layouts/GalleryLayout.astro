@@ -1,0 +1,52 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+import HeadingLayout from "./HeadingLayout.astro";
+import "../styles/global.css";
+const { frontmatter } = Astro.props;
+import swiper from "../scripts/swiper.js";
+import { Image } from "@astrojs/image/components";
+import tren from "../images/fotografias/tren.png";
+import portada from "../images/fotografias/portada.png";
+---
+
+<BaseLayout url={frontmatter.url}>
+  <div class="bg-black text-white">
+    <HeadingLayout
+      title={frontmatter.titulo}
+      author={frontmatter.autoria}
+      tags={frontmatter.tags}
+      image={frontmatter.imagen?.archivo}
+    />
+    <div class="swiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <Image src={tren} class="mx-auto" alt="" />
+        </div>
+        <div class="swiper-slide">
+          <Image src={portada} class="mx-auto" alt="" />
+        </div>
+        <slot />
+      </div>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-pagination"></div>
+    </div>
+  </div>
+</BaseLayout>
+<style>
+  .swiper {
+    width: 600px;
+    height: 300px;
+  }
+</style>
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"
+/>
+<script
+  is:inline
+  src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"
+></script>
+<script is:inline>
+  new Swiper(".swiper");
+</script>

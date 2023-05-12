@@ -1,0 +1,73 @@
+---
+const props = Astro.props;
+---
+
+<div {...props} class="relative">
+  <div>
+    <div class="container w-full h-full mx-auto">
+      <div class="wrapper pt-32 lg:pt-20 mx-auto">
+        <div class="max-w-3xl text-center">
+          <h1
+            class="font-serif font-normal text-[2.3rem] mobile-medium:text-[2.5rem] md:text-[3rem] lg:text-[3rem] leading-[1.2] lg:leading-[1.1]"
+          >
+            {props.title}
+          </h1>
+        </div>
+      </div>
+      <div class="wrapper py-9 mx-auto">
+        <div class="flex flex-wrap justify-center">
+          {
+            props.tags.map((tag) => (
+              <p class="m-2 px-2 font-sans uppercase tracking-wider text-black italic bg-pink even:bg-orange">
+                {tag}
+              </p>
+            ))
+          }
+        </div>
+      </div>
+      <!-- <div class="relative bottom-0 h-4 bar"></div> -->
+    </div>
+  </div>
+  {
+    props.image && (
+      <img
+        src={props.image}
+        alt=""
+        class="mx-auto h-96 w-auto left-10 top-20"
+      />
+    )
+  }
+  {
+    props.author && (
+      <div class="py-2 bg-black">
+        <div class="container mx-auto">
+          <div class="wrapper max-w-xs text-center text-white px-10 py-5 md:py-14 mx-auto">
+            <p class="italic tracking-wide text-lg font-serif">Por</p>
+            <p class="italic text-lg font-sans tracking-wide">{props.author}</p>
+          </div>
+        </div>
+      </div>
+    )
+  }
+</div>
+
+<style>
+  .bar {
+    background-image: url("../images/header-bg-mobile.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+  }
+
+  @media screen and (min-width: 700px) {
+    .bar {
+      background-image: url("../images/header-bg-tablet.png");
+    }
+  }
+
+  @media screen and (min-width: 1280px) {
+    .bar {
+      background-image: url("../images/header-bg-desktop.png");
+    }
+  }
+</style>

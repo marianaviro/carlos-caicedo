@@ -1,0 +1,8 @@
+---
+const props = Astro.props;
+import { Image } from "@astrojs/image/components";
+---
+
+<div class="swiper-slide">
+  <Image src={props.foto} class="mx-auto" alt={props.descripcion} />
+</div>

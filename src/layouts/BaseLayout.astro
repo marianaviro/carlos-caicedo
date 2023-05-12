@@ -5,10 +5,11 @@ const { pageTitle, isIndex } = Astro.props;
 import { Picture } from "@astrojs/image/components";
 ---
 
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="utf-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <!-- <link rel="stylesheet" href=https://use.typekit.net/fag2ywt.css> -->
     <link rel="stylesheet" href="https://use.typekit.net/nhp6hpn.css" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
@@ -48,5 +49,19 @@ import { Picture } from "@astrojs/image/components";
 
   .unscrollable {
     overflow: hidden;
+  }
+
+  .container {
+    @apply max-w-full;
+    @apply flex flex-col items-center;
+  }
+
+  .wrapper {
+    @apply max-w-xs mobile-medium:max-w-[90%] md:max-w-[80%] lg:max-w-[70%] xl:max-w-[60%];
+    @apply px-4 md:px-10 md:pl-14 lg:pl-20;
+  }
+
+  .tippy-box[data-theme~="moderno"] {
+    @apply bg-black text-white opacity-95 p-2 hyphens-auto;
   }
 </style>

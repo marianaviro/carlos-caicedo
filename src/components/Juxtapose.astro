@@ -1,0 +1,12 @@
+---
+const props = Astro.props;
+---
+
+<div class="swiper-slide">
+  <iframe
+    id={props.numero}
+    width="100%"
+    height="100%"
+    class="max-w-3xl min-h-screen"
+    src={props.enlace}></iframe>
+</div>
