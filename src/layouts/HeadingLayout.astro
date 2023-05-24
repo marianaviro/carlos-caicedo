@@ -3,71 +3,55 @@ const props = Astro.props;
 ---
 
 <div {...props} class="relative">
-  <div>
-    <div class="container w-full h-full mx-auto">
-      <div class="wrapper pt-32 lg:pt-20 mx-auto">
-        <div class="max-w-3xl text-center">
+  <div class="picture absolute -z-50 w-full h-full"></div>
+  <div class="container w-full min-h-[100vh] mx-auto">
+    <div class="py-12 wrapper min-h-[100vh] flex flex-col justify-center">
+      <div class="pt-14 px-8 mx-auto">
+        <div class="text-white max-w-xl text-left md:text-center">
           <h1
-            class="font-serif font-normal text-[2.3rem] mobile-medium:text-[2.5rem] md:text-[3rem] lg:text-[3rem] leading-[1.2] lg:leading-[1.1]"
+            class="font-display text-[3.5rem] mobile-medium:text-[3.8rem] md:text-[4rem] lg:text-[4.5rem] xl:text-[5rem] leading-[0.9]"
           >
             {props.title}
           </h1>
+          {
+            props.subtitle && (
+              <h3 class="mt-4 uppercase tracking-widest italic">
+                {props.subtitle}
+              </h3>
+            )
+          }
         </div>
       </div>
-      <div class="wrapper py-9 mx-auto">
-        <div class="flex flex-wrap justify-center">
+      <div class="pt-4 md:pt-9 px-8 mx-auto">
+        <div class="flex flex-wrap justify-start md:justify-center">
           {
             props.tags.map((tag) => (
-              <p class="m-2 px-2 font-sans uppercase tracking-wider text-black italic bg-pink even:bg-orange">
+              <p class="mr-2 mb-2 px-2 font-sans text-xs md:text-sm uppercase tracking-wider text-white italic border-white border-1">
                 {tag}
               </p>
             ))
           }
         </div>
       </div>
-      <!-- <div class="relative bottom-0 h-4 bar"></div> -->
+      {
+        props.author && (
+          <div class="pt-6 lg:pt-10 px-8">
+            <div class="text-left md:text-center">
+              <p class="underline text-white italic text-base font-sans underline-offset-4 decoration-dotted decoration-2">
+                Por: {props.author}
+              </p>
+            </div>
+          </div>
+        )
+      }
     </div>
   </div>
-  {
-    props.image && (
-      <img
-        src={props.image}
-        alt=""
-        class="mx-auto h-96 w-auto left-10 top-20"
-      />
-    )
-  }
-  {
-    props.author && (
-      <div class="py-2 bg-black">
-        <div class="container mx-auto">
-          <div class="wrapper max-w-xs text-center text-white px-10 py-5 md:py-14 mx-auto">
-            <p class="italic tracking-wide text-lg font-serif">Por</p>
-            <p class="italic text-lg font-sans tracking-wide">{props.author}</p>
-          </div>
-        </div>
-      </div>
-    )
-  }
+  <div class="bg-gradient-to-b from-pink to-white h-24 w-full"></div>
 </div>
-
 <style>
-  .bar {
-    background-image: url("../images/header-bg-mobile.png");
+  .picture {
+    background-image: url("../images/static.png");
+    background-size: cover;
     background-position: center;
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-  }
-
-  @media screen and (min-width: 700px) {
-    .bar {
-      background-image: url("../images/header-bg-tablet.png");
-    }
-  }
-
-  @media screen and (min-width: 1280px) {
-    .bar {
-      background-image: url("../images/header-bg-desktop.png");
-    }
   }
 </style>

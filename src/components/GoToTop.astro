@@ -1,0 +1,19 @@
+---
+import goup from "../images/go-up.svg?url";
+import goupactive from "../images/go-up-active.svg?url";
+---
+
+<div class="w-full bg-white pt-8 pb-20 flex justify-center">
+  <a href="#top" class="group">
+    <img
+      src={goup}
+      alt="Ir arriba"
+      class="h-24 cursor-pointer group-hover:hidden"
+    />
+    <img
+      src={goupactive}
+      alt="Ir arriba"
+      class="hidden group-hover:block h-24 cursor-pointer"
+    />
+  </a>
+</div>
