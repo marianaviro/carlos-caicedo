@@ -1,44 +1,95 @@
 ---
 const props = Astro.props;
+const height = props.size === "full" ? " min-h-[100vh]" : " pt-8";
+const textColor = props.theme === "dark" ? " text-white" : " text-black";
+const borderColor = props.theme === "dark" ? " border-white" : " border-black";
+const bgColor = props.theme === "dark" ? " bg-black" : " bg-white";
+const bgPicture = props.image ? " picture" : "";
 ---
 
 <div {...props} class="relative">
-  <div class="picture absolute -z-50 w-full h-full"></div>
-  <div class="container w-full min-h-[100vh] mx-auto">
-    <div class="py-12 wrapper min-h-[100vh] flex flex-col justify-center">
-      <div class="pt-14 px-8 mx-auto">
-        <div class="text-white max-w-xl text-left md:text-center">
+  <div class={"absolute -z-50 w-full h-full" + bgColor + bgPicture}></div>
+  <div class={"container w-full mx-auto" + height}>
+    <div class={"py-12 wrapper flex flex-col justify-center" + height}>
+      <div class="pt-14 px-4">
+        <div class={"max-w-xl text-left md:text-center" + textColor}>
           <h1
-            class="font-display text-[3.5rem] mobile-medium:text-[3.8rem] md:text-[4rem] lg:text-[4.5rem] xl:text-[5rem] leading-[0.9]"
+            class="pb-4 font-display text-[4.3rem] mobile-medium:text-[4.7rem] md:text-[5rem] lg:text-[5.5rem] xl:text-[6rem] leading-[0.88]"
           >
             {props.title}
           </h1>
           {
             props.subtitle && (
-              <h3 class="mt-4 uppercase tracking-widest italic">
+              <h3 class="py-4 text-lg uppercase tracking-wider leading-tight italic">
                 {props.subtitle}
               </h3>
             )
           }
         </div>
       </div>
-      <div class="pt-4 md:pt-9 px-8 mx-auto">
-        <div class="flex flex-wrap justify-start md:justify-center">
-          {
-            props.tags.map((tag) => (
-              <p class="mr-2 mb-2 px-2 font-sans text-xs md:text-sm uppercase tracking-wider text-white italic border-white border-1">
-                {tag}
-              </p>
-            ))
-          }
-        </div>
-      </div>
+      {
+        props.tags && (
+          <div class="pt-4 px-4">
+            <div class="flex flex-wrap justify-start md:justify-center">
+              {props.tags.map((tag) => {
+                const tagRoute = tag
+                  .normalize("NFD")
+                  .replace(/[\u0300-\u036f]/g, "")
+                  .toLowerCase()
+                  .split(" ")
+                  .join("-");
+                return (
+                  <a
+                    href={"/contenidos?" + tagRoute}
+                    class={
+                      "mr-2 mb-2 px-2 font-sans text-xs md:text-sm uppercase tracking-wider italic border-[1.5px] hover:text-orange hover:border-orange" +
+                      textColor +
+                      borderColor
+                    }
+                  >
+                    {tag}
+                  </a>
+                );
+              })}
+            </div>
+          </div>
+        )
+      }
+
       {
         props.author && (
-          <div class="pt-6 lg:pt-10 px-8">
-            <div class="text-left md:text-center">
-              <p class="underline text-white italic text-base font-sans underline-offset-4 decoration-dotted decoration-2">
-                Por: {props.author}
+          <div class="pt-6 px-4">
+            <div
+              class={
+                "text-left md:text-center italic text-base md:text-lg tracking-wide font-sans" +
+                textColor
+              }
+            >
+              <p>
+                Por:
+                {props.author.map((aut, i) => {
+                  const route = aut
+                    .normalize("NFD")
+                    .replace(/[\u0300-\u036f]/g, "")
+                    .toLowerCase()
+                    .split(" ")
+                    .join("-");
+                  const comma = i !== 0 ? "," : "";
+                  return (
+                    <span>
+                      {comma}
+                      <a
+                        href={"/equipo#" + route}
+                        class={
+                          "underline underline-offset-4 decoration-dotted decoration-2 hover:text-orange hover:decoration-solid" +
+                          textColor
+                        }
+                      >
+                        {aut}
+                      </a>
+                    </span>
+                  );
+                })}
               </p>
             </div>
           </div>
@@ -46,7 +97,6 @@ const props = Astro.props;
       }
     </div>
   </div>
-  <div class="bg-gradient-to-b from-pink to-white h-24 w-full"></div>
 </div>
 <style>
   .picture {

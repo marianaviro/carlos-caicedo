@@ -5,13 +5,29 @@ import "../styles/global.css";
 const { frontmatter } = Astro.props;
 ---
 
-<BaseLayout url={frontmatter.url}>
-  <div class="bg-black text-white">
+<BaseLayout url={frontmatter.url} pageTitle={frontmatter.titulo}>
+  <div class="">
     <HeadingLayout
       title={frontmatter.titulo}
+      subtitle={frontmatter.subtitulo}
       author={frontmatter.autoria}
-      tags={frontmatter.tags}
       image={frontmatter.imagen?.archivo}
+      description={frontmatter.imagen?.descripcion}
+      theme={"light"}
+      size={"short"}
     />
+    <div class="timeline bg-white">
+      <div class="pl-10 border-l-2 border-black mx-auto max-w-md">
+        <slot />
+      </div>
+    </div>
   </div>
 </BaseLayout>
+<style is:global>
+  .timeline h1 {
+    @apply mt-8 first:mt-0 font-serif font-bold italic text-4xl md:text-6xl lg:text-9xl;
+  }
+
+  .timeline p {
+  }
+</style>

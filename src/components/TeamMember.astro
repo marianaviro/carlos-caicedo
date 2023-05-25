@@ -1,0 +1,34 @@
+---
+const props = Astro.props;
+import { Picture } from "@astrojs/image/components";
+const route = props.name
+  .normalize("NFD")
+  .replace(/[\u0300-\u036f]/g, "")
+  .toLowerCase()
+  .split(" ")
+  .join("-");
+const file = "/images/equipo/".concat(route).concat(".png");
+---
+
+<div
+  id={route}
+  class="py-8 first:pt-16 last:pb-16 md:py-12 px-4 md:pl-0 md:pr-20 max-w-lg flex items-center justify-center"
+>
+  <Picture
+    src={file}
+    class="rounded-full border-[1.5px] border-black"
+    alt={props.name}
+    widths={[200, 300]}
+    sizes="300px"
+    aspectRatio="1:1"
+    format="png"
+  />
+  <div class="ml-4">
+    <p
+      class="font-sans text-base uppercase font-bold italic tracking-wider leading-[1.2]"
+    >
+      {props.name}
+    </p>
+    <p class="mt-2 leading-tight">{props.description}</p>
+  </div>
+</div>

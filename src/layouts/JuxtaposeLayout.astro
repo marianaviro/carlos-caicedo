@@ -5,13 +5,16 @@ import "../styles/global.css";
 const { frontmatter } = Astro.props;
 ---
 
-<BaseLayout url={frontmatter.url}>
-  <div class="bg-white text-black">
+<BaseLayout url={frontmatter.url} pageTitle={frontmatter.titulo}>
+  <div>
     <HeadingLayout
       title={frontmatter.titulo}
+      subtitle={frontmatter.subtitulo}
       author={frontmatter.autoria}
       tags={frontmatter.tags}
       image={frontmatter.imagen?.archivo}
+      theme={"dark"}
+      size={"long"}
     />
     <div class="swiper">
       <div class="swiper-button-next"></div>

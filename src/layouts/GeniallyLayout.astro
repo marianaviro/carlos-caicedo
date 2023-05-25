@@ -6,8 +6,8 @@ import GoToTop from "../components/GoToTop.astro";
 const { frontmatter } = Astro.props;
 ---
 
-<BaseLayout url={frontmatter.url}>
-  <div class="">
+<BaseLayout url={frontmatter.url} pageTitle={frontmatter.titulo}>
+  <div>
     <HeadingLayout
       title={frontmatter.titulo}
       subtitle={frontmatter.subtitulo}
@@ -15,10 +15,12 @@ const { frontmatter } = Astro.props;
       tags={frontmatter.tags}
       image={frontmatter.imagen?.archivo}
       description={frontmatter.imagen?.descripcion}
+      theme={"light"}
+      size={"short"}
     />
     <div class="bg-white">
-      <div class="py-24 mx-auto w-full md:w-1/2 lg:w-1/3">
-        <div class="border-black border-2">
+      <div class="pb-12 md:pt-12 mx-auto w-full md:w-1/2">
+        <div class="border-black md:border-2">
           <slot />
         </div>
       </div>

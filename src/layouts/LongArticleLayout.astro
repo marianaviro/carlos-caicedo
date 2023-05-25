@@ -6,8 +6,8 @@ import "../styles/global.css";
 const { frontmatter } = Astro.props;
 ---
 
-<BaseLayout url={frontmatter.url}>
-  <div class="">
+<BaseLayout url={frontmatter.url} pageTitle={frontmatter.titulo}>
+  <div>
     <HeadingLayout
       title={frontmatter.titulo}
       subtitle={frontmatter.subtitulo}
@@ -15,7 +15,10 @@ const { frontmatter } = Astro.props;
       tags={frontmatter.tags}
       image={frontmatter.imagen?.archivo}
       description={frontmatter.imagen?.descripcion}
+      theme={"dark"}
+      size={"full"}
     />
+    <div class="bg-gradient-to-b from-pink to-white h-36 w-full"></div>
     <ArticleLayout>
       <slot />
     </ArticleLayout>

@@ -2,13 +2,15 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 const pageTitle = "Equipo";
 import ribbon from "../images/ribbon.png?url";
+import TeamMember from "../components/TeamMember.astro";
+import GoToTop from "../components/GoToTop.astro";
 ---
 
-<BaseLayout pageTitle={pageTitle} isIndex={true}>
+<BaseLayout pageTitle={pageTitle}>
   <div
     class="relative pt-28 pb-14 px-4 medium-mobile:px-10 md:pl-32 uppercase font-display leading-very-tight sm:leading-extra-tight text-[8.2rem] mobile-medium:text-[9.5rem] sm:text-[12rem] md:text-[16rem] lg:text-[17rem] xl:text-[18rem] bg-white"
   >
-    <h1 class="z-20 relative text-left">EL</h1>
+    <h1 class="z-20 relative text-left">El</h1>
     <h1 class="z-20 relative text-left">Equipo</h1>
     <img
       src={ribbon}
@@ -21,6 +23,21 @@ import ribbon from "../images/ribbon.png?url";
       Conoce a las personas detrás de este proyecto.
     </p>
   </div>
+  <div class="md:pl-32 bg-white flex flex-wrap items-center justify-start">
+    <TeamMember
+      name="Juanita Solano Roa"
+      description="Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis nat"
+    />
+    <TeamMember
+      name="Camilo Hernández"
+      description="Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis nat"
+    />
+    <TeamMember
+      name="Mariana Villamizar Rodríguez"
+      description="Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis nat"
+    />
+  </div>
+  <GoToTop />
 </BaseLayout>
 <style>
   body {

@@ -1,6 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-const pageTitle = "Home Page";
+const pageTitle = "Carlos Caicedo | Un moderno vernáculo";
 import * as Intro from "../pages/contenido/index.mdx";
 import { Content as Content } from "../pages/contenido/index.mdx";
 import arrow from "../images/arrow.svg?url";
@@ -58,9 +58,31 @@ import spark from "../images/spark.png?url";
         >
           {Intro.frontmatter.titulo}
         </h1>
-        <div class="py-6 leading-tight">
-          <p class="italic font-sans underline tracking-wide text-lg">
-            Por: {Intro.frontmatter.autoria}
+        <div class="py-6 italic font-sans tracking-wide text-lg">
+          <p>
+            Por:
+            {
+              Intro.frontmatter.autoria.map((aut, i) => {
+                const route = aut
+                  .normalize("NFD")
+                  .replace(/[\u0300-\u036f]/g, "")
+                  .toLowerCase()
+                  .split(" ")
+                  .join("-");
+                const comma = i !== 0 ? "," : "";
+                return (
+                  <span>
+                    {comma}
+                    <a
+                      href={"/equipo#" + route}
+                      class="underline underline-offset-4 decoration-dotted decoration-2 hover:text-orange hover:decoration-solid"
+                    >
+                      {aut}
+                    </a>
+                  </span>
+                );
+              })
+            }
           </p>
         </div>
       </div>
