@@ -2,6 +2,7 @@
 import BaseLayout from "./BaseLayout.astro";
 import ArticleLayout from "./ArticleLayout.astro";
 import HeadingLayout from "./HeadingLayout.astro";
+import end from "../images/end.svg?url";
 import "../styles/global.css";
 const { frontmatter } = Astro.props;
 ---
@@ -15,10 +16,9 @@ const { frontmatter } = Astro.props;
       tags={frontmatter.tags}
       image={frontmatter.imagen?.archivo}
       description={frontmatter.imagen?.descripcion}
-      theme={"dark"}
-      size={"full"}
+      theme={"light"}
     />
-    <div class="bg-gradient-to-b from-pink to-white h-36 w-full"></div>
+    <!-- <div class="bg-gradient-to-b to-pink from-white h-36 w-full"></div> -->
     <ArticleLayout>
       <slot />
     </ArticleLayout>
