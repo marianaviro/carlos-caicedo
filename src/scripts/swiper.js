@@ -1,28 +1,24 @@
 import Swiper from "swiper/bundle";
 
-// import styles bundle
-import "swiper/css/bundle";
+const createSwiper = (selector, options = {}) => {
+  const config = {
+    loop: true,
 
-const swiper = new Swiper(".swiper", {
-  // Optional parameters
-  direction: "vertical",
-  loop: true,
+    // scrollbar: {
+    //   el: '.swiper-scrollbar',
+    // },
 
-  // If we need pagination
-  pagination: {
-    el: ".swiper-pagination",
-  },
+    // pagination: {
+    //   el: ".swiper-pagination",
+    // },
 
-  // Navigation arrows
-  navigation: {
-    nextEl: ".swiper-button-next",
-    prevEl: ".swiper-button-prev",
-  },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+    ...options,
+  };
+  return new Swiper(selector, config);
+};
 
-  // And if we need scrollbar
-  scrollbar: {
-    el: ".swiper-scrollbar",
-  },
-});
-
-export default swiper;
+export default createSwiper;

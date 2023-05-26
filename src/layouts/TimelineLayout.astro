@@ -2,6 +2,7 @@
 import BaseLayout from "./BaseLayout.astro";
 import HeadingLayout from "./HeadingLayout.astro";
 import "../styles/global.css";
+import GoToTop from "../components/GoToTop.astro";
 const { frontmatter } = Astro.props;
 ---
 
@@ -10,6 +11,7 @@ const { frontmatter } = Astro.props;
     <HeadingLayout
       title={frontmatter.titulo}
       subtitle={frontmatter.subtitulo}
+      tags={frontmatter.tags}
       author={frontmatter.autoria}
       image={frontmatter.imagen?.archivo}
       description={frontmatter.imagen?.descripcion}
@@ -17,17 +19,23 @@ const { frontmatter } = Astro.props;
       size={"short"}
     />
     <div class="timeline bg-white">
-      <div class="pl-10 border-l-2 border-black mx-auto max-w-md">
-        <slot />
+      <div class="py-10 px-4 bg-white">
+        <div
+          class="wrapper max-w-xl mx-auto border-l-2 border-black border-dotted"
+        >
+          <slot />
+        </div>
       </div>
     </div>
   </div>
+  <GoToTop bg="bg-white" />
 </BaseLayout>
 <style is:global>
   .timeline h1 {
-    @apply mt-8 first:mt-0 font-serif font-bold italic text-4xl md:text-6xl lg:text-9xl;
+    @apply mt-8 first:mt-0 font-serif font-bold italic text-6xl;
   }
 
   .timeline p {
+    @apply mt-2 text-xl font-serif leading-relaxed hyphens-auto;
   }
 </style>

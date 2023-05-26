@@ -8,6 +8,10 @@ import { Picture } from "@astrojs/image/components";
 <html lang="es">
   <head>
     <meta charset="utf-8" />
+    <!-- <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"
+    /> -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <!-- <link rel="stylesheet" href=https://use.typekit.net/fag2ywt.css> -->
     <link rel="stylesheet" href="https://use.typekit.net/nhp6hpn.css" />
@@ -46,6 +50,7 @@ import { Picture } from "@astrojs/image/components";
 
   body {
     @apply bg-white;
+    @apply selection:bg-pink selection:text-white;
   }
 
   .unscrollable {

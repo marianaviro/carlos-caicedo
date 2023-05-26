@@ -6,7 +6,9 @@ const props = Astro.props;
   <iframe
     id={props.numero}
     width="100%"
-    height="100%"
-    class="max-w-3xl min-h-screen"
+    height="98%"
+    loading="lazy"
+    class=""
     src={props.enlace}></iframe>
+  <div class="swiper-lazy-preloader"></div>
 </div>

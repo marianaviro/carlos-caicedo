@@ -14,15 +14,17 @@ const file = "/images/equipo/".concat(route).concat(".png");
   id={route}
   class="py-8 first:pt-16 last:pb-16 md:py-12 px-4 md:pl-0 md:pr-20 max-w-lg flex items-center justify-center"
 >
-  <Picture
-    src={file}
-    class="rounded-full border-[1.5px] border-black"
-    alt={props.name}
-    widths={[200, 300]}
-    sizes="300px"
-    aspectRatio="1:1"
-    format="png"
-  />
+  <div class="shrink-0">
+    <Picture
+      src={file}
+      class="rounded-full border-[1.5px] border-black"
+      alt={props.name}
+      widths={[90, 120, 150]}
+      sizes="(max-width: 500px) 90px, (max-width: 800px) 120px, 150px"
+      aspectRatio="1:1"
+      format="png"
+    />
+  </div>
   <div class="ml-4">
     <p
       class="font-sans text-base uppercase font-bold italic tracking-wider leading-[1.2]"

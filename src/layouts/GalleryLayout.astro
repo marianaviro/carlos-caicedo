@@ -3,10 +3,11 @@ import BaseLayout from "./BaseLayout.astro";
 import HeadingLayout from "./HeadingLayout.astro";
 import "../styles/global.css";
 const { frontmatter } = Astro.props;
-import swiper from "../scripts/swiper.js";
 import { Image } from "@astrojs/image/components";
 import tren from "../images/fotografias/tren.png";
 import portada from "../images/fotografias/portada.png";
+import "swiper/css/bundle";
+import GoToTop from "../components/GoToTop.astro";
 ---
 
 <BaseLayout url={frontmatter.url} pageTitle={frontmatter.titulo}>
@@ -20,36 +21,25 @@ import portada from "../images/fotografias/portada.png";
       theme={"dark"}
       size={"short"}
     />
-    <div class="swiper">
-      <div class="swiper-wrapper">
-        <div class="swiper-slide">
-          <Image src={tren} class="mx-auto" alt="" />
+    <div class="h-screen bg-black flex items-center">
+      <div class="swiper">
+        <div class="swiper-wrapper">
+          <slot />
         </div>
-        <div class="swiper-slide">
-          <Image src={portada} class="mx-auto" alt="" />
-        </div>
-        <slot />
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+        <!-- <div class="swiper-pagination"></div> -->
       </div>
-      <div class="swiper-button-next"></div>
-      <div class="swiper-button-prev"></div>
-      <div class="swiper-pagination"></div>
     </div>
+    <GoToTop bg="bg-black" />
   </div>
 </BaseLayout>
-<style>
+<!-- <style>
   .swiper {
-    width: 600px;
-    height: 300px;
+    aspect-ratio: 16 / 9;
   }
-</style>
-<link
-  rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"
-/>
-<script
-  is:inline
-  src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"
-></script>
-<script is:inline>
-  new Swiper(".swiper");
+</style> -->
+<script>
+  import createSwiper from "../scripts/swiper.js";
+  const swiper = createSwiper(".swiper");
 </script>

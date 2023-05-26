@@ -1,14 +1,26 @@
 ---
 const props = Astro.props;
 const height = props.size === "full" ? " min-h-[82vh]" : " pt-8";
-const textColor = props.theme === "dark" ? " text-white" : " text-black";
-const borderColor = props.theme === "dark" ? " border-white" : " border-black";
+const textColor = props.image
+  ? " text-white"
+  : props.theme === "dark"
+  ? " text-white"
+  : " text-black";
+const borderColor = props.image
+  ? " text-white"
+  : props.theme === "dark"
+  ? " border-white"
+  : " border-black";
 const bgColor = props.theme === "dark" ? " bg-black" : " bg-white";
 const bgPicture = props.image ? " picture" : "";
 ---
 
 <div {...props} class="relative">
-  <div class={"absolute -z-50 w-full h-full" + bgColor + bgPicture}></div>
+  <div
+    class={"absolute -z-50 w-full h-full" + bgColor + bgPicture}
+    style={`background-image: url("${props.image}")`}
+  >
+  </div>
   <div class={"max-w-full flex flex-col items-center" + height}>
     <div class={"py-12 wrapper flex flex-col justify-center" + height}>
       <div class="pt-24 md:pt-14 px-4">
@@ -100,7 +112,6 @@ const bgPicture = props.image ? " picture" : "";
 </div>
 <style>
   .picture {
-    background-image: url("../images/static.png");
     background-size: cover;
     background-position: center;
   }

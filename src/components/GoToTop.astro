@@ -1,9 +1,10 @@
 ---
+const props = Astro.props;
 import goup from "../images/go-up.svg?url";
 import goupactive from "../images/go-up-active.svg?url";
 ---
 
-<div class="w-full bg-white pt-8 pb-20 flex justify-center">
+<div class={"w-full pt-8 pb-20 flex justify-center" + " " + props.bg}>
   <a href="#top" class="group">
     <img
       src={goup}

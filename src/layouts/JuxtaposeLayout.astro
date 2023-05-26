@@ -3,6 +3,8 @@ import BaseLayout from "./BaseLayout.astro";
 import HeadingLayout from "./HeadingLayout.astro";
 import "../styles/global.css";
 const { frontmatter } = Astro.props;
+import "swiper/css/bundle";
+import GoToTop from "../components/GoToTop.astro";
 ---
 
 <BaseLayout url={frontmatter.url} pageTitle={frontmatter.titulo}>
@@ -14,21 +16,32 @@ const { frontmatter } = Astro.props;
       tags={frontmatter.tags}
       image={frontmatter.imagen?.archivo}
       theme={"dark"}
-      size={"long"}
+      size={"full"}
     />
-    <div class="swiper">
-      <div class="swiper-button-next"></div>
-      <div class="swiper-button-prev"></div>
-      <div class="swiper-wrapper">
-        <slot />
+    <div class="py-8">
+      <div class="h-screen bg-black flex items-center">
+        <div class="swiper">
+          <div class="swiper-wrapper">
+            <slot />
+          </div>
+          <div class="swiper-button-next"></div>
+          <div class="swiper-button-prev"></div>
+          <!-- <div class="swiper-pagination"></div> -->
+        </div>
       </div>
-      <div class="swiper-pagination"></div>
     </div>
   </div>
+  <GoToTop bg="bg-black" />
 </BaseLayout>
 <style>
   .swiper {
-    width: 600px;
-    height: 300px;
+    aspect-ratio: 16 / 9;
+  }
+  .swiper-pagination {
+    @apply mt-4 text-white font-sans text-lg font-bold;
   }
 </style>
+<script>
+  import createSwiper from "../scripts/swiper.js";
+  const swiper = createSwiper(".swiper");
+</script>
