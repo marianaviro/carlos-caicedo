@@ -3,18 +3,77 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 const pageTitle = "Contenidos";
 import ribbon from "../images/ribbon.png?url";
 import GoToTop from "../components/GoToTop.astro";
+const allContent = await Astro.glob("./contenidos/*.mdx");
 ---
 
 <BaseLayout pageTitle={pageTitle}>
   <div
-    class="relative pt-28 pb-14 px-4 medium-mobile:px-10 uppercase font-display leading-very-tight sm:leading-extra-tight text-[4.5rem] mobile-medium:text-[5.5rem] sm:text-[7rem] md:text-[16rem] lg:text-[17rem] xl:text-[18rem] bg-white"
+    class="relative pt-28 pb-20 px-4 medium-mobile:px-10 uppercase font-display leading-very-tight sm:leading-extra-tight text-[4.5rem] mobile-medium:text-[5.5rem] sm:text-[7rem] md:text-[10rem] lg:text-[12rem] xl:text-[12rem] bg-white"
   >
     <h1 class="z-20 relative text-center">Contenidos</h1>
     <img
       src={ribbon}
       alt=""
-      class="z-0 absolute top-16 mobile-medium:top-18 md:top-18 lg:top-24 left-20 mobile-medium:left-[5.8rem] md:left-72 lg:left-80 h-40 mobile-medium:h-44 md:h-64 lg:h-60 xl:h-64"
+      class="z-0 absolute top-16 mobile-medium:top-18 left-20 mobile-medium:left-[5.8rem] md:left-72 lg:left-80 h-40 mobile-medium:h-44 md:h-64 lg:h-60 xl:h-64"
     />
+  </div>
+  <div class="py-8 bg-white text-center">
+    <p
+      class="pb-8 uppercase italic font-bold text-black font-sans tracking-wider lg:text-lg"
+    >
+      Etiquetas
+    </p>
+    <div class="tags flex flex-wrap items-center justify-center">
+      <button class="tag" id="ensayo">Ensayo</button>
+      <button class="tag" id="cronologia">Cronología</button>
+      <button class="tag" id="entrevistas">Entrevistas</button>
+      <button class="tag" id="noche">Noche</button>
+      <button class="tag" id="ciudad">Ciudad</button>
+      <button class="tag" id="imagen-texto">Imagen-Texto</button>
+      <button class="tag" id="lluvia">Lluvia</button>
+      <button class="tag" id="marcos">Marcos</button>
+      <button class="tag" id="politica">Política</button>
+      <button class="tag" id="deporte">Deporte</button>
+    </div>
+  </div>
+  <div class="w-full bg-yellow py-8 px-4 text-center">
+    <p
+      class="uppercase italic font-bold text-black font-sans tracking-wider lg:text-lg"
+    >
+      Resultados
+    </p>
+  </div>
+  <div class="">
+    <div
+      class="pt-8 pb-16 md:pt-10 bg-white flex flex-wrap justify-center gap-10"
+    >
+      {
+        allContent.map((post) => (
+          <a
+            href={post.url}
+            class={"content " + post.frontmatter.tags.join(" ").toLowerCase()}
+          >
+            <div class="py-4 px-6">
+              <p class="py-4 uppercase italic font-sans text-xs tracking-wider">
+                {post.frontmatter.tags.join(" · ")}
+              </p>
+              <h2 class="pb-4 font-serif italic font-bold text-3xl leading-none">
+                {post.frontmatter.titulo}
+              </h2>
+              <h3 class="pb-4 uppercase italic font-sans font-bold text-base tracking-wide leading-tight">
+                {post.frontmatter.subtitulo}
+              </h3>
+
+              {post.frontmatter.autoria && (
+                <p class="pb-4 font-sans text-base leading-tight">
+                  Por: {post.frontmatter.autoria.join(", ")}
+                </p>
+              )}
+            </div>
+          </a>
+        ))
+      }
+    </div>
   </div>
 
   <GoToTop bg="bg-white" />
@@ -33,4 +92,45 @@ import GoToTop from "../components/GoToTop.astro";
     @apply max-w-xs mobile-medium:max-w-[90%] md:max-w-[80%] lg:max-w-[70%] xl:max-w-[60%];
     @apply px-4 md:px-10 md:pl-14 lg:pl-20;
   }
+
+  .tag {
+    @apply mx-2 mb-2 px-2 font-sans text-xs md:text-sm uppercase tracking-wider italic border-[1.5px] border-black hover:text-white hover:bg-black;
+  }
+
+  .tag.active {
+    @apply bg-black text-white;
+  }
+
+  .content {
+    @apply w-96 flex items-center;
+    @apply bg-white border-black border-[1.5px] hover:bg-black;
+    @apply font-sans text-sm text-black text-left hover:text-white;
+  }
+
+  .content.faded {
+    @apply hidden;
+  }
 </style>
+<script>
+  const tagsContainer = document.querySelector(".tags");
+
+  const contentBoxes = Array.from(document.querySelectorAll(".content"));
+
+  let lastPressedBtn;
+
+  tagsContainer.addEventListener("click", (e: Event) => {
+    const target = e.target as HTMLButtonElement;
+    if (!target.matches("button.tag")) return;
+
+    if (lastPressedBtn) lastPressedBtn.classList.remove("active");
+
+    const { id } = target;
+    lastPressedBtn = target as HTMLButtonElement;
+    lastPressedBtn.classList.toggle("active");
+
+    contentBoxes.forEach((box) => {
+      box.classList.remove("faded");
+      box.classList.toggle("faded", !box.className.includes(id));
+    });
+  });
+</script>
