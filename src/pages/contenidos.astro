@@ -101,6 +101,11 @@ const allContent = await Astro.glob("./contenidos/*.mdx");
     @apply bg-black text-white;
   }
 
+  .tag.active::after {
+    content: "x";
+    @apply pl-2;
+  }
+
   .content {
     @apply w-96 flex items-center;
     @apply bg-white border-black border-[1.5px] hover:bg-black;
@@ -116,21 +121,28 @@ const allContent = await Astro.glob("./contenidos/*.mdx");
 
   const contentBoxes = Array.from(document.querySelectorAll(".content"));
 
-  let lastPressedBtn;
+  let activeTags = [];
 
   tagsContainer.addEventListener("click", (e: Event) => {
     const target = e.target as HTMLButtonElement;
     if (!target.matches("button.tag")) return;
 
-    if (lastPressedBtn) lastPressedBtn.classList.remove("active");
-
     const { id } = target;
-    lastPressedBtn = target as HTMLButtonElement;
-    lastPressedBtn.classList.toggle("active");
+    const index = activeTags.indexOf(id);
+    target.classList.toggle("active", index < 0);
+    if (index >= 0) activeTags.splice(index, 1);
+    else activeTags.push(id);
+    console.log("Active tags:");
+    console.log(activeTags);
 
     contentBoxes.forEach((box) => {
+      if (activeTags.length == 0) box.classList.remove("faded");
+      const classes = box.className.split(" ");
       box.classList.remove("faded");
-      box.classList.toggle("faded", !box.className.includes(id));
+      box.classList.toggle(
+        "faded",
+        !classes.some((className) => activeTags.indexOf(className) >= 0)
+      );
     });
   });
 </script>
