@@ -40,40 +40,11 @@ const bgPicture = props.image ? " picture" : "";
         </div>
       </div>
       {
-        props.tags && (
-          <div class="pt-4 px-4">
-            <div class="flex flex-wrap justify-start md:justify-center">
-              {props.tags.map((tag) => {
-                const tagRoute = tag
-                  .normalize("NFD")
-                  .replace(/[\u0300-\u036f]/g, "")
-                  .toLowerCase()
-                  .split(" ")
-                  .join("-");
-                return (
-                  <a
-                    href={"/contenidos?" + tagRoute}
-                    class={
-                      "mr-2 mb-2 px-2 font-sans text-xs md:text-sm uppercase tracking-wider italic border-[1.5px] hover:text-orange hover:border-orange" +
-                      textColor +
-                      borderColor
-                    }
-                  >
-                    {tag}
-                  </a>
-                );
-              })}
-            </div>
-          </div>
-        )
-      }
-
-      {
         props.author && (
-          <div class="pt-6 px-4">
+          <div class="pb-6 px-4">
             <div
               class={
-                "text-left md:text-center italic text-base md:text-lg tracking-wide font-sans" +
+                "text-left md:text-center italic text-base tracking-wide font-sans" +
                 textColor
               }
             >
@@ -103,6 +74,34 @@ const bgPicture = props.image ? " picture" : "";
                   );
                 })}
               </p>
+            </div>
+          </div>
+        )
+      }
+      {
+        props.tags && (
+          <div class="pt-4 px-4">
+            <div class="flex flex-wrap justify-start md:justify-center">
+              {props.tags.map((tag) => {
+                const tagRoute = tag
+                  .normalize("NFD")
+                  .replace(/[\u0300-\u036f]/g, "")
+                  .toLowerCase()
+                  .split(" ")
+                  .join("-");
+                return (
+                  <a
+                    href={"/contenidos?" + tagRoute}
+                    class={
+                      "mr-2 mb-2 px-2 font-sans text-xs md:text-sm uppercase tracking-wider italic border-[1.5px] hover:text-orange hover:border-orange" +
+                      textColor +
+                      borderColor
+                    }
+                  >
+                    {tag}
+                  </a>
+                );
+              })}
             </div>
           </div>
         )

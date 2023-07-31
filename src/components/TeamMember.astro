@@ -1,13 +1,15 @@
 ---
 const props = Astro.props;
 import { Picture } from "@astrojs/image/components";
+import { getPicture } from "@astrojs/image";
 const route = props.name
   .normalize("NFD")
   .replace(/[\u0300-\u036f]/g, "")
   .toLowerCase()
   .split(" ")
   .join("-");
-const file = "/images/equipo/".concat(route).concat(".png");
+const file = `../images/equipo/${route}.png`;
+const fallback = "/images/equipo/tv-static.png";
 ---
 
 <div
@@ -22,6 +24,7 @@ const file = "/images/equipo/".concat(route).concat(".png");
       widths={[90, 120, 150]}
       sizes="(max-width: 500px) 90px, (max-width: 800px) 120px, 150px"
       aspectRatio="1:1"
+      fit="contain"
       format="png"
     />
   </div>

@@ -19,12 +19,9 @@ const { frontmatter } = Astro.props;
       size={"short"}
     />
     <div class="bg-white">
-      <div class="pb-12 md:pt-12 mx-auto w-full md:w-1/2">
-        <div class="border-black md:border-2">
-          <slot />
-        </div>
+      <div class="pb-12 md:pt-6 mx-auto">
+        <slot />
       </div>
-      <GoToTop bg="bg-white" />
     </div>
   </div>
 </BaseLayout>

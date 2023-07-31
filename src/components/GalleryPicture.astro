@@ -4,13 +4,18 @@ import { Image } from "@astrojs/image/components";
 ---
 
 <div class="swiper-slide">
-  <div class="h-screen flex items-center">
+  <div class="h-screen flex flex-col items-center justify-center">
     <Image
       src={props.foto}
-      class="max-h-screen w-auto mx-auto"
+      class="max-h-[90%] w-auto mx-auto"
       alt={props.descripcion}
       loading="lazy"
     />
+    {
+      props.descripcion && (
+        <p class="pt-4 text-white text-center">{props.descripcion}</p>
+      )
+    }
   </div>
   <div class="swiper-lazy-preloader"></div>
 </div>

@@ -15,27 +15,14 @@ const { frontmatter } = Astro.props;
       author={frontmatter.autoria}
       image={frontmatter.imagen?.archivo}
       description={frontmatter.imagen?.descripcion}
-      theme={"light"}
+      theme={"dark"}
       size={"short"}
     />
-    <div class="timeline bg-white">
-      <div class="py-10 px-4 bg-white">
-        <div
-          class="wrapper max-w-xl mx-auto border-l-2 border-black border-dotted"
-        >
-          <slot />
-        </div>
+    <div class="bg-black">
+      <div class="pb-12 mx-auto">
+        <slot />
       </div>
     </div>
   </div>
-  <GoToTop bg="bg-white" />
+  <GoToTop bg="bg-black" />
 </BaseLayout>
-<style is:global>
-  .timeline h1 {
-    @apply mt-8 first:mt-0 font-serif font-bold italic text-6xl;
-  }
-
-  .timeline p {
-    @apply mt-2 text-xl font-serif leading-relaxed hyphens-auto;
-  }
-</style>
