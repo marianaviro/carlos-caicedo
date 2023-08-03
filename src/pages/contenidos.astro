@@ -143,6 +143,7 @@ const allContent = await Astro.glob("./contenidos/*.mdx");
         "faded",
         !classes.some((className) => activeTags.indexOf(className) >= 0)
       );
+      if (activeTags.length == 0) box.classList.remove("faded");
     });
   });
 </script>
