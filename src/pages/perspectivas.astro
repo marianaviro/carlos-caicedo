@@ -1,16 +1,16 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-const pageTitle = "Contenidos";
+const pageTitle = "Perspectivas";
 import ribbon from "../images/ribbon.png?url";
 import GoToTop from "../components/GoToTop.astro";
-const allContent = await Astro.glob("./contenidos/*.mdx");
+const allContent = await Astro.glob("./perspectivas/*.mdx");
 ---
 
 <BaseLayout pageTitle={pageTitle}>
   <div
-    class="relative pt-28 pb-20 px-4 medium-mobile:px-10 uppercase font-display leading-very-tight sm:leading-extra-tight text-[4.5rem] mobile-medium:text-[5.5rem] sm:text-[7rem] md:text-[10rem] lg:text-[12rem] xl:text-[12rem] bg-white"
+    class="relative pt-[7.5rem] mobile-medium:pt-32 md:pt-36 lg:pt-32 pb-20 px-4 medium-mobile:px-10 uppercase font-display leading-very-tight sm:leading-extra-tight text-[4.5rem] mobile-medium:text-[5.5rem] sm:text-[7rem] md:text-[10rem] lg:text-[12rem] xl:text-[12rem] bg-white"
   >
-    <h1 class="z-20 relative text-center">Contenidos</h1>
+    <h1 class="z-20 relative text-center">Perspectivas</h1>
     <img
       src={ribbon}
       alt=""
