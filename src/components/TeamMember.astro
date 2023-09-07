@@ -1,6 +1,6 @@
 ---
 const props = Astro.props;
-import { Picture } from "@astrojs/image/components";
+import { Image } from "@astrojs/image/components";
 import { getPicture } from "@astrojs/image";
 const route = props.name
   .normalize("NFD")
@@ -8,7 +8,7 @@ const route = props.name
   .toLowerCase()
   .split(" ")
   .join("-");
-const file = `../images/equipo/${route}.png`;
+const file = `./images/equipo/${route}.png`;
 const fallback = "/images/equipo/tv-static.png";
 ---
 
@@ -17,15 +17,11 @@ const fallback = "/images/equipo/tv-static.png";
   class="py-8 first:pt-16 last:pb-16 md:py-12 px-4 md:pl-0 md:pr-20 max-w-lg flex items-center justify-center"
 >
   <div class="shrink-0">
-    <Picture
+    <img
       src={file}
       class="rounded-full border-[1.5px] border-black"
       alt={props.name}
-      widths={[90, 120, 150]}
-      sizes="(max-width: 500px) 90px, (max-width: 800px) 120px, 150px"
-      aspectRatio="1:1"
-      fit="contain"
-      format="png"
+      width="150px"
     />
   </div>
   <div class="ml-4">
