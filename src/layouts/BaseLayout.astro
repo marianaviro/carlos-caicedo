@@ -18,8 +18,6 @@ import { Picture } from "@astrojs/image/components";
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <title>{pageTitle}</title>
-    <script type="text/javascript" src="http://code.jquery.com/jquery-1.8.2.js"
-    ></script>
     <script type="text/javascript">
       $(function () {
         $("img").bind("contextmenu", function () {
@@ -34,6 +32,29 @@ import { Picture } from "@astrojs/image/components";
       <slot />
     </div>
     <Footer />
+    <script type="text/javascript">
+      function deactivateContext(col) {
+        for (let i = 0; i < col.length; i++) {
+          if (col[i].addEventListener) {
+            col[i].addEventListener(
+              "contextmenu",
+              function (e) {
+                e.preventDefault();
+              },
+              false
+            );
+          } else {
+            col[i].attachEvent("oncontextmenu", function () {
+              window.event.returnValue = false;
+            });
+          }
+        }
+      }
+      const imgs = document.getElementsByTagName("img");
+      const divs = document.getElementsByClassName("img");
+      deactivateContext(imgs);
+      deactivateContext(divs);
+    </script>
     <script>
       import "../scripts/menu.js";
     </script>
