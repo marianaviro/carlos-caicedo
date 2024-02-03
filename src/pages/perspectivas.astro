@@ -24,16 +24,16 @@ const allContent = await Astro.glob("./perspectivas/*.mdx");
       Etiquetas
     </p>
     <div class="tags flex flex-wrap items-center justify-center">
-      <button class="tag" id="ensayo">Ensayo</button>
-      <button class="tag" id="cronologia">Cronología</button>
-      <button class="tag" id="entrevistas">Entrevistas</button>
-      <button class="tag" id="noche">Noche</button>
       <button class="tag" id="ciudad">Ciudad</button>
+      <button class="tag" id="cronologia">Cronología</button>
+      <button class="tag" id="deporte">Deporte</button>
+      <button class="tag" id="documental">Documental</button>
+      <button class="tag" id="ensayo">Ensayo</button>
       <button class="tag" id="imagen-texto">Imagen-Texto</button>
       <button class="tag" id="lluvia">Lluvia</button>
       <button class="tag" id="marcos">Marcos</button>
+      <button class="tag" id="noche">Noche</button>
       <button class="tag" id="politica">Política</button>
-      <button class="tag" id="deporte">Deporte</button>
     </div>
   </div>
   <div class="w-full bg-yellow py-8 px-4 text-center">
@@ -51,11 +51,11 @@ const allContent = await Astro.glob("./perspectivas/*.mdx");
         allContent.map((post) => (
           <a
             href={post.url}
-            class={"content " + post.frontmatter.tags.join(" ").toLowerCase()}
+            class={"content " + post.frontmatter.tags?.join(" ").toLowerCase()}
           >
             <div class="py-4 px-6">
               <p class="py-4 uppercase italic font-sans text-xs tracking-wider">
-                {post.frontmatter.tags.join(" · ")}
+                {post.frontmatter.tags?.join(" · ")}
               </p>
               <h2 class="pb-4 font-serif italic font-bold text-3xl leading-none">
                 {post.frontmatter.titulo}
@@ -66,7 +66,7 @@ const allContent = await Astro.glob("./perspectivas/*.mdx");
 
               {post.frontmatter.autoria && (
                 <p class="pb-4 font-sans text-base leading-tight">
-                  Por: {post.frontmatter.autoria.join(", ")}
+                  Por: {post.frontmatter.autoria?.join(", ")}
                 </p>
               )}
             </div>
