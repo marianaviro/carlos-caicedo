@@ -44,10 +44,10 @@ document.querySelector(".toggle").addEventListener("click", () => {
   }
 });
 
-document.querySelector(".dropdown-toggle").addEventListener("click", () => {
-  //Change text color
-  document.querySelector(".dropdown-toggle").classList.toggle("text-pink");
+// document.querySelector(".dropdown-toggle").addEventListener("click", () => {
+//   //Change text color
+//   document.querySelector(".dropdown-toggle").classList.toggle("text-pink");
 
-  //Toggle dropdown container
-  document.querySelector(".dropdown").classList.toggle("hidden");
-});
+//   //Toggle dropdown container
+//   document.querySelector(".dropdown").classList.toggle("hidden");
+// });
