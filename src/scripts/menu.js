@@ -43,11 +43,3 @@ document.querySelector(".toggle").addEventListener("click", () => {
     document.querySelector(".cancel").classList.remove("shrink");
   }
 });
-
-// document.querySelector(".dropdown-toggle").addEventListener("click", () => {
-//   //Change text color
-//   document.querySelector(".dropdown-toggle").classList.toggle("text-pink");
-
-//   //Toggle dropdown container
-//   document.querySelector(".dropdown").classList.toggle("hidden");
-// });
